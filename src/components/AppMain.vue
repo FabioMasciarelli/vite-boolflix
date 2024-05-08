@@ -1,9 +1,9 @@
 <script>
-import {store} from '../store.js';
+import { store } from '../store.js';
 import PropsCard from './PropsCard.vue';
 
 export default {
-    props: {
+    components: {
         PropsCard
     },
     data() {
@@ -17,13 +17,12 @@ export default {
 
 <template>
 
-<div>
-    <PropsCard/>
-</div>
+    <div>
+        <p v-if="store.moviesArray.length > 0">La tua ricerca ha prodotto {{ store.moviesArray.length }} risultati</p>
+        <PropsCard />
+    </div>
 
 </template>
 
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

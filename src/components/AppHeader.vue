@@ -1,7 +1,11 @@
 <script>
 import { store } from '../store.js';
+import SearchBar from './SearchBar.vue';
 
 export default {
+    components: {
+        SearchBar
+    },
     data() {
         return {
             store,
@@ -12,14 +16,9 @@ export default {
 </script>
 
 <template>
-    <div>
-        <input type="text" placeholder="Cosa vuoi guardare?" v-model="store.userQuery">
-        <button @click="$emit(searchClicked)">Cerca</button>
-    </div>
 
+    <SearchBar />
 
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

@@ -5,7 +5,7 @@ import { store } from './store';
 import axios from 'axios';
 
 export default {
-    components : {
+    components: {
         AppHeader,
         AppMain
     },
@@ -18,8 +18,8 @@ export default {
     methods: {
         apiMoviesRequest() {
             axios.get(`https://api.themoviedb.org/3/search/movie?api_key=5de2f0b2385fbfdb3a3da0baad756512&query=${store.userQuery}`).then((resp) => {
-                console.log(resp);
-                this.store.moviesArray = null
+                console.log(resp.data.results);
+                this.store.moviesArray = resp.data.results;
             })
         }
     }
@@ -29,11 +29,9 @@ export default {
 <template>
 
 
-    <AppHeader />
-    <AppMain @searchClicked="apiMoviesRequest"/>
+    <AppHeader @searchClicked="apiMoviesRequest()" />
+    <AppMain />
 
 </template>
 
-<style>
-
-</style>
+<style></style>
