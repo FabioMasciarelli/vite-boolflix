@@ -1,10 +1,10 @@
 <script>
 import { store } from '../store.js';
-import PropsCard from './PropsCard.vue';
+import AppCard from './AppCard.vue/';
 
 export default {
     components: {
-        PropsCard
+        AppCard
     },
     data() {
         return {
@@ -18,8 +18,8 @@ export default {
 <template>
 
     <div>
-        <p v-if="store.moviesArray.length > 0">La tua ricerca ha prodotto {{ store.moviesArray.length }} risultati</p>
-        <PropsCard />
+        <p v-if="store.moviesArray.length > 0">La tua ricerca ha prodotto {{ store.moviesArray.length + store.seriesArray.length }} risultati</p>
+        <AppCard />
     </div>
 
 </template>

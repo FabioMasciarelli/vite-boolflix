@@ -16,9 +16,23 @@ export default {
 </script>
 
 <template>
+    <header>
 
-    <SearchBar />
+        <SearchBar />
+    </header>
 
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px;
+    height: 150px;
+    width: 100%;
+    background-color: black;
+}
+
+</style>

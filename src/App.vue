@@ -18,8 +18,14 @@ export default {
     methods: {
         apiMoviesRequest() {
             axios.get(`https://api.themoviedb.org/3/search/movie?api_key=5de2f0b2385fbfdb3a3da0baad756512&query=${store.userQuery}`).then((resp) => {
-                console.log(resp.data.results);
                 this.store.moviesArray = resp.data.results;
+                console.log(this.store.moviesArray);
+            })
+        },
+        apiSeriesrequest() {
+            axios.get(`https://api.themoviedb.org/3/search/tv?api_key=5de2f0b2385fbfdb3a3da0baad756512&&query=${store.userQuery}`).then((resp) => {
+                this.store.seriesArray = resp.data.results;
+                console.log(this.store.seriesArray);
             })
         }
     }
@@ -29,7 +35,7 @@ export default {
 <template>
 
 
-    <AppHeader @searchClicked="apiMoviesRequest()" />
+    <AppHeader @searchClicked="apiMoviesRequest(), apiSeriesrequest()" />
     <AppMain />
 
 </template>
