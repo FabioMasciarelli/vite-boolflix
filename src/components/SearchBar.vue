@@ -8,6 +8,11 @@ export default {
         return {
             store
         }
+    },
+    methods: {
+        test() {
+            console.log();
+        }
     }
 }
 </script>
@@ -37,5 +42,6 @@ export default {
         background-color: red;
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;
+        cursor: pointer;
     }
 </style>

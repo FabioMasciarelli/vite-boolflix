@@ -41,7 +41,7 @@ export default {
 
 <template>
 
-    
+
     <div class="results-list">
         <!-- MOVIES -->
         <section class="movies">
@@ -58,10 +58,10 @@ export default {
                 <div class="card-front">
                     <img :src="`https://image.tmdb.org/t/p/w342/${movieInfo.poster_path}`" :alt="movieInfo.title">
                 </div>
-    
+
             </div>
         </section>
-    
+
         <!-- TV SERIES -->
         <section class="series">
             <div class="card" v-for="seriesInfo in store.seriesArray">
@@ -69,13 +69,14 @@ export default {
                     <h3>{{ seriesInfo.name }}</h3>
                     <h6>{{ seriesInfo.original_name }}</h6>
                     <img :src="flagImage(seriesInfo.original_language)" :alt="seriesInfo.name" class="flag">
-                    <div class="vote">
+                    <div>
                         <i class="fas fa fa-solid fa-star" v-for="star in starIcon(seriesInfo.vote_average)"></i>
                         <i class="fa-regular fa-star" v-for="star in 5 - starIcon(seriesInfo.vote_average)"></i>
                     </div>
                 </div>
                 <div class="card-front">
-                    <img :src="`https://image.tmdb.org/t/p/w342/${seriesInfo.poster_path}`" :alt="seriesInfo.name">
+                    <img :src="`https://image.tmdb.org/t/p/w342/${seriesInfo.poster_path}`" :alt="seriesInfo.name"
+                        class="path">
                 </div>
             </div>
         </section>
@@ -85,27 +86,29 @@ export default {
 
 
 <style lang="scss" scoped>
-
-
 .results-list {
 
-    .movies {
-        min-height: 300px;
+    padding: 20px;
+
+    .movies, .series {
         display: flex;
         flex-wrap: wrap;
-    
-        .card {
-            height: 300px;
-            width: calc(100% / 5);
+        gap: 20px;
+    }
 
-            &:hover {
-                .card-back {
-                    display: block;
-                }
+    .card {
+        border: 20px;
+        color: white;
+        height: 450px;
+        width: calc(100% / 5 - 20px);
 
-                .card-front {
-                    display: none;
-                }
+        &:hover {
+            .card-back {
+                display: block;
+            }
+
+            .card-front {
+                display: none;
             }
         }
 
@@ -117,12 +120,13 @@ export default {
                 width: 10px;
             }
 
-            .vote {
-                text-align: center;
+            .card-front {
+                height: 300px;
+                margin: 20px;
+
             }
         }
     }
 
 }
-
 </style>

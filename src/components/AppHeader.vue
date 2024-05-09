@@ -17,22 +17,40 @@ export default {
 
 <template>
     <header>
-
-        <SearchBar />
+        <div class="title">
+            <h1>Boolflix</h1>
+        </div>
+        <div class="search">
+            <SearchBar @searchClicked="$emit('searchClicked')" />
+        </div>
     </header>
 
 </template>
 
 <style lang="scss" scoped>
-
 header {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
     padding: 30px;
     height: 150px;
     width: 100%;
     background-color: black;
-}
 
+    .title {
+        width: 70%;
+
+        h1 {
+            color: red;
+        }
+    }
+
+    .search {
+        width: 30%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
 </style>
