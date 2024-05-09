@@ -16,7 +16,7 @@ export default {
 <template>
 
     <div>
-        <input type="text" placeholder="Cosa vuoi guardare?" v-model="store.userQuery">
+        <input type="text" placeholder="Cosa vuoi guardare?" v-model="store.userQuery" aria-label="">
         <button @click="$emit('searchClicked')">Cerca</button>
     </div>
 
